@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RnaTranscriptionTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-01-03T10:51:20" hostname="mbp.local" time="0.043">
+  <properties/>
+  <testcase name="testRnaTranscriptionOfThymineIsAdenine" classname="RnaTranscriptionTest" time="0.002"/>
+  <testcase name="testRnaTranscription" classname="RnaTranscriptionTest" time="0.004"/>
+  <testcase name="testRnaTranscriptionOfCytosineIsGuanine" classname="RnaTranscriptionTest" time="0.002"/>
+  <testcase name="testRnaTranscriptionOfGuanineIsCytosine" classname="RnaTranscriptionTest" time="0.001"/>
+  <testcase name="testRnaTranscriptionOfRnaThrowsAnError" classname="RnaTranscriptionTest" time="0.019"/>
+  <testcase name="testRnaTranscriptionOfPartiallyInvalidInput" classname="RnaTranscriptionTest" time="0.001"/>
+  <testcase name="testRnaTranscriptionOfAdenineIsUracil" classname="RnaTranscriptionTest" time="0.001"/>
+  <testcase name="testRnaTranscriptionOfInvalidInputThrowsAnError" classname="RnaTranscriptionTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

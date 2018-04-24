@@ -1,0 +1,14 @@
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/bin/Debug/netcoreapp2.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/bin/Debug/netcoreapp2.0/xunit.runner.reporters.netcoreapp10.dll
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/bin/Debug/netcoreapp2.0/xunit.runner.utility.netcoreapp10.dll
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/bin/Debug/netcoreapp2.0/HelloWorld.deps.json
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/bin/Debug/netcoreapp2.0/HelloWorld.runtimeconfig.json
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/bin/Debug/netcoreapp2.0/HelloWorld.runtimeconfig.dev.json
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/bin/Debug/netcoreapp2.0/HelloWorld.dll
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/bin/Debug/netcoreapp2.0/HelloWorld.pdb
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/obj/Debug/netcoreapp2.0/HelloWorld.csprojResolveAssemblyReference.cache
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/obj/Debug/netcoreapp2.0/HelloWorld.csproj.CoreCompileInputs.cache
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/obj/Debug/netcoreapp2.0/HelloWorld.AssemblyInfoInputs.cache
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/obj/Debug/netcoreapp2.0/HelloWorld.AssemblyInfo.cs
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/obj/Debug/netcoreapp2.0/HelloWorld.dll
+/Users/ruanpienaar/Dropbox/exercism/csharp/hello-world/obj/Debug/netcoreapp2.0/HelloWorld.pdb
