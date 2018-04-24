@@ -2,3 +2,4 @@
 *.out
 *.out.dSYM
 *˚.beam
+_build/
