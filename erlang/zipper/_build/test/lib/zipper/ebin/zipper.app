@@ -1,7 +1,0 @@
-{application,zipper,
-             [{description,"exercism.io - zipper"},
-              {vsn,"0.0.1"},
-              {modules,[zipper]},
-              {registered,[]},
-              {applications,[kernel,stdlib]},
-              {env,[]}]}.
