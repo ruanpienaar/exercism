@@ -3,3 +3,6 @@
 *.out.dSYM
 *˚.beam
 _build/
+
+# Java
+*.gradle/
