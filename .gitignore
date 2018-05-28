@@ -4,5 +4,8 @@
 *˚.beam
 _build/
 
+# Mac
+.DS_Store
+
 # Java
 *.gradle/
