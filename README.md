@@ -1,2 +1,3 @@
-mcs FILE.cs
-mono --arch=32 FILE.exe
+All my exercism.io exercise solutions.
+
+http://exercism.io/exercises
