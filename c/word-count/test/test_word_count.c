@@ -4,8 +4,8 @@
 #include "vendor/unity.h"
 #include "../src/word_count.h"
 
-word_count_word_t actual_solution[MAX_WORDS];
-word_count_word_t expected_solution[MAX_WORDS];
+WORD_COUNT_WORD_T actual_solution[MAX_WORDS];
+WORD_COUNT_WORD_T expected_solution[MAX_WORDS];
 void setUp(void)
 {
 }
@@ -14,9 +14,9 @@ void tearDown(void)
 {
 }
 
-static void check_solution(word_count_word_t * expected_solution,
+static void check_solution(WORD_COUNT_WORD_T * expected_solution,
                            int expected_word_count,
-                           word_count_word_t * actual_solution,
+                           WORD_COUNT_WORD_T * actual_solution,
                            int actual_word_count)
 {
    // All words counted?
@@ -55,7 +55,7 @@ void test_word_count_one_word(void)
 
 void test_word_count_one_of_each_word(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   //TEST_IGNORE();               // delete this line to run test
    int index = 0;
    int actual_word_count;
    char *input_text = "one of each";
@@ -82,7 +82,7 @@ void test_word_count_one_of_each_word(void)
 
 void test_word_count_multiple_occurrences_of_a_word(void)
 {
-   TEST_IGNORE();
+   //TEST_IGNORE();
    int index = 0;
    int actual_word_count;
    char *input_text = "one fish two fish red fish blue fish";
@@ -383,7 +383,7 @@ void test_excessive_length_word(void)
        "Look thisisanexcessivelylongwordthatsomeonetypedwithoutusingthespacebar enough";
 
    const int expected_word_count = EXCESSIVE_LENGTH_WORD;
-   word_count_word_t expected_solution[MAX_WORDS];
+   WORD_COUNT_WORD_T expected_solution[MAX_WORDS];
 
    // build the expected solution
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
@@ -557,7 +557,6 @@ void test_excessive_number_words(void)
 int main(void)
 {
    UnityBegin("test/test_word_count.c");
-
    RUN_TEST(test_word_count_one_word);
    RUN_TEST(test_word_count_one_of_each_word);
    RUN_TEST(test_word_count_multiple_occurrences_of_a_word);
@@ -573,8 +572,6 @@ int main(void)
    RUN_TEST(test_excessive_length_word);
    RUN_TEST(test_max_number_words);
    RUN_TEST(test_excessive_number_words);
-
    UnityEnd();
-
    return 0;
 }

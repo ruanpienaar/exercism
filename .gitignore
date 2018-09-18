@@ -12,3 +12,5 @@ _build/
 java/*/build/
 
 nbproject
+
+.tags
