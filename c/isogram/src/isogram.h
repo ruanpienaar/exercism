@@ -1,6 +1,8 @@
 #ifndef ISOGRAM_H
 #define ISOGRAM_H
 
-int is_isogram(const char* string);
+#include <stdbool.h>
+
+bool is_isogram(const char phrase[]);
 
 #endif
