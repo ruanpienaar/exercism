@@ -2,12 +2,15 @@
 package gigasecond
 
 import (
-	"math"
+	"fmt"
 	"time"
 )
 
 // AddGigasecond takes in a time and adds a gigasecond to the time, then
 // converts it back to a time.
 func AddGigasecond(t time.Time) time.Time {
-	return t.Add(time.Duration(int64(math.Pow(10, 9))) * time.Second)
+	//return t.Add(time.Duration(int64(math.Pow(10, 9))) * time.Second)
+	//return t.Add(time.Duration(1000000000) * time.Second)
+	fmt.Print("%v", time.Second)
+	return t
 }

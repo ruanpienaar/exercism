@@ -1,4 +1,5 @@
-def is_leap_year(year):
+def leap_year(year):
+    """ Check if a given year is a leap year """
     if evenly_divisible(year, 4):
         if evenly_divisible(year, 100):
             if evenly_divisible(year, 400):
