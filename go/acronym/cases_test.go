@@ -1,8 +1,8 @@
 package acronym
 
 // Source: exercism/problem-specifications
-// Commit: cae7ae1 acronym: remove test case with mixed-case phrase (#788)
-// Problem Specifications Version: 1.1.0
+// Commit: cacf1f1 Acronym: add underscore test case (#1436)
+// Problem Specifications Version: 1.7.0
 
 type acronymTest struct {
 	input    string
@@ -23,15 +23,27 @@ var stringTestCases = []acronymTest{
 		expected: "FIFO",
 	},
 	{
-		input:    "PHP: Hypertext Preprocessor",
-		expected: "PHP",
-	},
-	{
 		input:    "GNU Image Manipulation Program",
 		expected: "GIMP",
 	},
 	{
 		input:    "Complementary metal-oxide semiconductor",
 		expected: "CMOS",
+	},
+	{
+		input:    "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me",
+		expected: "ROTFLSHTMDCOALM",
+	},
+	{
+		input:    "Something - I made up from thin air",
+		expected: "SIMUFTA",
+	},
+	{
+		input:    "Halley's Comet",
+		expected: "HC",
+	},
+	{
+		input:    "The Road _Not_ Taken",
+		expected: "TRNT",
 	},
 }

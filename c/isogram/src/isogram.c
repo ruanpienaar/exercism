@@ -3,10 +3,10 @@
 #include <ctype.h>
 #include <string.h>
 
-// Horrible first attempts...
-
-// O(N2)
-int is_isogram(const char* str){
+bool is_isogram(const char* str){
+    if(str == NULL){
+        return 0;
+    }
     int string_length = strlen(str);
     if(string_length == 0){
         return 1;
