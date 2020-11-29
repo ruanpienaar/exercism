@@ -6,8 +6,6 @@ import (
 	"testing"
 )
 
-const targetTestVersion = 1
-
 func echo(c string) string {
 	return c
 }
@@ -28,12 +26,6 @@ var tests = []struct {
 	{[]string{"HELLO", "WORLD"}, []string{"hello", "world"}, strings.ToUpper, "strings.ToUpper"},
 }
 
-func TestTestVersion(t *testing.T) {
-	if testVersion != targetTestVersion {
-		t.Fatalf("Found testVersion = %v, want %v", testVersion, targetTestVersion)
-	}
-}
-
 func TestAccumulate(t *testing.T) {
 	for _, test := range tests {
 		actual := Accumulate(test.given, test.converter)
@@ -44,14 +36,11 @@ func TestAccumulate(t *testing.T) {
 }
 
 func BenchmarkAccumulate(b *testing.B) {
-	b.StopTimer()
-	for _, test := range tests {
-		b.StartTimer()
+	for i := 0; i < b.N; i++ {
 
-		for i := 0; i < b.N; i++ {
+		for _, test := range tests {
 			Accumulate(test.given, test.converter)
 		}
 
-		b.StopTimer()
 	}
 }
