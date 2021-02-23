@@ -6,9 +6,9 @@
 
 // results structure
 typedef struct word_count_word {
-   char text[MAX_WORD_LENGTH];
+   char text[MAX_WORD_LENGTH + 1];      // allow for the string to be null-terminated
    int count;
-} WORD_COUNT_WORD_T;
+} word_count_word_t;
 
 #define EXCESSIVE_LENGTH_WORD     -1
 #define EXCESSIVE_NUMBER_OF_WORDS -2
@@ -22,6 +22,6 @@ typedef struct word_count_word {
 //    uniqueWords - number of words in the words structure
 //           returns a negative number if an error.
 //           words will contain the results up to that point.
-int word_count(const char *input_text, WORD_COUNT_WORD_T * words);
+int word_count(const char *input_text, word_count_word_t * words);
 
 #endif
