@@ -14,3 +14,5 @@ java/*/build/
 nbproject
 
 .tags
+
+.vscode
