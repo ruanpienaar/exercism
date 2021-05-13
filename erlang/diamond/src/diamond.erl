@@ -8,61 +8,43 @@
 
 rows([LetterInt]) ->
     LetterDistance = input_letter_distance(LetterInt),
-    HeightAndWidth = get_height_and_width(LetterDistance),
-    create_rows(
-        LetterDistance,
-        LetterInt,
-        starting_letter(),
-        HeightAndWidth,
-        HeightAndWidth,
-        false
-    ).
-
-starting_letter() ->
-    $A.
-
-create_rows(_, _, _, 0, _, _) ->
-    [];
-create_rows(LetterDistance, LetterInt, CurrentLetterInt, HW, HeightAndWidth, Middle) when HW > 0 ->
-    [row(LetterDistance, LetterInt, CurrentLetterInt, HeightAndWidth)] ++
-        create_rows(LetterDistance,
+    BottomRows =
+        create_rows(
+            LetterDistance,
             LetterInt,
-            forwards_or_backwards(Middle, CurrentLetterInt),
-            HW - 1,
-            HeightAndWidth,
-            middle(Middle, LetterInt, CurrentLetterInt + 1)
-        ).
+            get_height_and_width(LetterDistance)
+        ),
+    lists:reverse(tl(BottomRows)) ++ BottomRows.
 
-middle(true, _, _) ->
-    true;
-middle(false, X, X) ->
-    true;
-middle(_, _, _) ->
-    false.
+create_rows(LetterDistance, LetterInt = $A, HeightAndWidth) ->
+    [ row(LetterDistance, LetterInt, HeightAndWidth) ];
+create_rows(LetterDistance, LetterInt, HeightAndWidth) ->
+    [ row(LetterDistance, LetterInt, HeightAndWidth) ] ++
+    create_rows(LetterDistance, LetterInt -1, HeightAndWidth).
 
-forwards_or_backwards(false, CurrentLetterInt) ->
-    CurrentLetterInt + 1;
-forwards_or_backwards(true, CurrentLetterInt) ->
-    CurrentLetterInt - 1.
-
-row(_, _LetterInt, $A, 1) ->
+row(_, $A, 1) ->
     "A";
-row(LetterDistance, _LetterInt, $A, _HeightAndWidth) ->
-    Spaces = [" " || _ <- lists:seq(1, LetterDistance)],
+row(LetterDistance, $A, _HeightAndWidth) ->
+    Spaces = spaces(LetterDistance),
     lists:flatten(
         [Spaces ++ [$A] ++ Spaces]
     );
-row(_LetterDistance, _LetterInt, CurrentLetterInt, HeightAndWidth) ->
-    InnerDistance = ( input_letter_distance(CurrentLetterInt) * 2 ) - 1,
-    OuterDistance = abs(HeightAndWidth - (InnerDistance + 2)) div 2, %% +2 for each symmetric character
-    InnerSpaces = [ " " || _ <- lists:seq(1, InnerDistance) ],
-    OutterSpaces = [ " " || _ <- lists:seq(1, OuterDistance) ],
+row(_LetterDistance, LetterInt, HeightAndWidth) ->
+    InnerDistance = ( input_letter_distance(LetterInt) * 2 ) - 1,
+    OuterDistance = abs(HeightAndWidth - (InnerDistance + 2)) div 2,
+    InnerSpaces = spaces(InnerDistance),
+    OutterSpaces = spaces(OuterDistance),
     lists:flatten(
-        OutterSpaces ++ [CurrentLetterInt] ++ InnerSpaces ++ [CurrentLetterInt] ++ OutterSpaces
+        OutterSpaces ++ [LetterInt] ++ InnerSpaces ++ [LetterInt] ++ OutterSpaces
     ).
 
-get_height_and_width(LetterDistance) ->
-    (LetterDistance * 2)+1.
+spaces(X) ->
+    [ " " || _ <- lists:seq(1, X) ].
 
-input_letter_distance(LetterInt) when LetterInt >= 65 andalso LetterInt =< 90 ->
+get_height_and_width(LetterDistance) ->
+    ( LetterDistance * 2 ) + 1.
+
+input_letter_distance(LetterInt)
+        when LetterInt >= 65 andalso
+             LetterInt =< 90 ->
     LetterInt - $A.
