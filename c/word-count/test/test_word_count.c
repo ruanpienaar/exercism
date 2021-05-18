@@ -99,7 +99,7 @@ void test_word_count_one_of_each_word(void)
 
 void test_word_count_multiple_occurrences_of_a_word(void)
 {
-   //TEST_IGNORE();
+   TEST_IGNORE();
    int index = 0;
    int actual_word_count;
    const char *input_text = "one fish two fish red fish blue fish";
@@ -131,7 +131,7 @@ void test_word_count_multiple_occurrences_of_a_word(void)
 
 void test_word_count_handles_cramped_lists(void)
 {
-   //TEST_IGNORE();
+   TEST_IGNORE();
    int index = 0;
    int actual_word_count;
    const char *input_text = "one,two,three";
@@ -157,7 +157,7 @@ void test_word_count_handles_cramped_lists(void)
 
 void test_word_count_handles_expanded_lists(void)
 {
-   //TEST_IGNORE();
+   TEST_IGNORE();
    int index = 0;
    int actual_word_count;
    const char *input_text = "one,\ntwo,\nthree";
@@ -183,7 +183,7 @@ void test_word_count_handles_expanded_lists(void)
 
 void test_word_count_ignore_punctuation(void)
 {
-   //TEST_IGNORE();
+   TEST_IGNORE();
    int index = 0;
    int actual_word_count;
    const char *input_text = "car: carpet as java: javascript!!&@$%^&";
@@ -215,7 +215,7 @@ void test_word_count_ignore_punctuation(void)
 
 void test_word_count_include_numbers(void)
 {
-   //TEST_IGNORE();
+   TEST_IGNORE();
    int index = 0;
    int actual_word_count;
    const char *input_text = "testing, 1, 2 testing";
@@ -241,7 +241,7 @@ void test_word_count_include_numbers(void)
 
 void test_word_count_normalize_case(void)
 {
-   //TEST_IGNORE();
+   TEST_IGNORE();
    int index = 0;
    int actual_word_count;
    const char *input_text = "go Go GO Stop stop";
@@ -264,7 +264,7 @@ void test_word_count_normalize_case(void)
 
 void test_word_count_with_apostrophes(void)
 {
-   //TEST_IGNORE();
+   TEST_IGNORE();
    int index = 0;
    int actual_word_count;
    const char *input_text = "First: don't laugh. Then: don't cry.";
@@ -296,7 +296,7 @@ void test_word_count_with_apostrophes(void)
 
 void test_word_count_with_quotation(void)
 {
-   //TEST_IGNORE();
+   TEST_IGNORE();
    int index = 0;
    int actual_word_count;
    const char *input_text = "Joe can't tell between 'large' and large.";
@@ -331,7 +331,7 @@ void test_word_count_with_quotation(void)
 
 void test_word_count_from_example(void)
 {
-   //TEST_IGNORE();
+   TEST_IGNORE();
    int index = 0;
    int actual_word_count;
    const char *input_text = "olly olly in come free";

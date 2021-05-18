@@ -4,6 +4,20 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+char *concat(char *s1, const char *letter){
+    int size = strlen(s1)+1+1; //+1=letter, +1=null-terminator
+    char *result = strncat(s1, letter, size);
+    return result;
+}
+
+char *chartoupper(char letter){
+    unsigned char cu;
+    cu = toupper(letter);
+    char *u = malloc(2);
+    sprintf(u, "%c", cu);
+    return u;
+}
+
 char *abbreviate(const char *phrase){
     if(phrase == NULL || phrase[0] == '\0'){
         return NULL;
@@ -24,18 +38,4 @@ char *abbreviate(const char *phrase){
         }
         return abbreviation;
     }
-}
-
-char *concat(char *s1, const char *letter){
-    int size = strlen(s1)+1+1; //+1=letter, +1=null-terminator
-    char *result = strncat(s1, letter, size);
-    return result;
-}
-
-char *chartoupper(char letter){
-    unsigned char cu;
-    cu = toupper(letter);
-    char *u = malloc(2);
-    sprintf(u, "%c", cu);
-    return u;
 }
