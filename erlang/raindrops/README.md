@@ -1,27 +1,21 @@
-# Spiral Matrix
+# Raindrops
 
-Given the size, return a square matrix of numbers in spiral order.
+Convert a number to a string, the contents of which depend on the number's factors.
 
-The matrix should be filled with natural numbers, starting from 1
-in the top-left corner, increasing in an inward, clockwise spiral order,
-like these examples:
+- If the number has 3 as a factor, output 'Pling'.
+- If the number has 5 as a factor, output 'Plang'.
+- If the number has 7 as a factor, output 'Plong'.
+- If the number does not have 3, 5, or 7 as a factor,
+  just pass the number's digits straight through.
 
-###### Spiral matrix of size 3
+## Examples
 
-```text
-1 2 3
-8 9 4
-7 6 5
-```
-
-###### Spiral matrix of size 4
-
-```text
- 1  2  3 4
-12 13 14 5
-11 16 15 6
-10  9  8 7
-```
+- 28's factors are 1, 2, 4, **7**, 14, 28.
+  - In raindrop-speak, this would be a simple "Plong".
+- 30's factors are 1, 2, **3**, **5**, 6, 10, 15, 30.
+  - In raindrop-speak, this would be a "PlingPlang".
+- 34 has four factors: 1, 2, 17, and 34.
+  - In raindrop-speak, this would be "34".
 
 ## Running tests
 
@@ -48,7 +42,7 @@ environment expected by the exercises.
 
 ## Source
 
-Reddit r/dailyprogrammer challenge #320 [Easy] Spiral Ascension. [https://www.reddit.com/r/dailyprogrammer/comments/6i60lr/20170619_challenge_320_easy_spiral_ascension/](https://www.reddit.com/r/dailyprogrammer/comments/6i60lr/20170619_challenge_320_easy_spiral_ascension/)
+A variation on a famous interview question intended to weed out potential candidates. [http://jumpstartlab.com](http://jumpstartlab.com)
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
