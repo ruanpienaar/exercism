@@ -1,11 +1,13 @@
 defmodule RationalNumbers do
+  # Fraction = {1/2} 1 over 2 OR 50% or 0.5
+
   # {a1, b1}
   @type rational :: {integer, integer}
 
   @doc """
   Gets the common demoninator of 2 fractions - NB: not simplified
   """
-  defp get_common_denominator({numerator1, denominator1}, {numerator2, denominator2}) do
+  def get_common_denominator({numerator1, denominator1}, {numerator2, denominator2}) do
     # {3/6}  &  {4/6}
     # 1*3=  3
     common_nominator1 = numerator1 * denominator2
@@ -18,7 +20,7 @@ defmodule RationalNumbers do
     # 3*2=  6
     common_denominator2 = denominator2 * denominator1
     # 4/6
-    { {common_nominator1, common_denominator1}, {common_nominator2, common_denominator2} }
+    {{common_nominator1, common_denominator1}, {common_nominator2, common_denominator2}}
   end
 
   @doc """
@@ -26,7 +28,6 @@ defmodule RationalNumbers do
   """
   @spec add(a :: rational, b :: rational) :: rational
   def add({numerator1, denominator1}, {numerator2, denominator2}) do
-
     # greatest_denominator = Integer.gcd(denominator1, denominator1)
 
     a = {numerator1, denominator1}
@@ -35,14 +36,11 @@ defmodule RationalNumbers do
     # {3/6} + {4/6}
     # {7/6}
 
-
-    
-
-    { {common_nominator1, common_denominator1}, {common_nominator2, _common_denominator2} } = 
+    {{common_nominator1, common_denominator1}, {common_nominator2, _common_denominator2}} =
       get_common_denominator(a, b)
+
     # {3, 6} + {4, 6} -> {3 + 4} / 6 => 7/6
     reduce({common_nominator1 + common_nominator2, common_denominator1})
-
   end
 
   @doc """
@@ -50,18 +48,19 @@ defmodule RationalNumbers do
   """
   @spec subtract(a :: rational, b :: rational) :: rational
   def subtract(a, b) do
-
     # {1, 2} - {2, 3}
     # {-1, 6}
-    { {common_nominator1, common_denominator1}, {common_nominator2, _common_denominator2} } = 
+    {{common_nominator1, common_denominator1}, {common_nominator2, _common_denominator2}} =
       get_common_denominator(a, b)
 
-    common_denominator1 = case common_nominator1 - common_nominator2 do 
-      0 ->
-        common_denominator1 = 1
-      _ ->
-        common_denominator1
-    end
+    common_denominator1 =
+      case common_nominator1 - common_nominator2 do
+        0 ->
+          1
+
+        _ ->
+          common_denominator1
+      end
 
     {common_nominator1 - common_nominator2, common_denominator1}
   end
@@ -70,9 +69,10 @@ defmodule RationalNumbers do
   Multiply two rational numbers
   """
   @spec multiply(a :: rational, b :: rational) :: rational
-  def multiply({numerator1, denominator1}, {0, denominator2}) do
+  def multiply({numerator1, _denominator1}, {0, denominator2}) do
     {0, denominator2}
   end
+
   def multiply({numerator1, denominator1}, {numerator2, denominator2}) do
     reduce({numerator1 * numerator2, denominator1 * denominator2})
   end
@@ -82,20 +82,20 @@ defmodule RationalNumbers do
   """
   @spec divide_by(num :: rational, den :: rational) :: rational
   def divide_by({numerator1, denominator1}, {numerator2, denominator2}) do
-
     IO.puts("fraction is {#{numerator2}, #{denominator2}}\n")
 
     # if numerator2 is negative, make denominator2 negative.
-    {numerator2, denominator2} = 
+    {numerator2, denominator2} =
       case numerator2 < 0 do
         true ->
           {numerator2 * -1, denominator2 * -1}
+
         false ->
           {numerator2, denominator2}
       end
 
     reciprocal = {denominator2, numerator2}
-    
+
     IO.puts("reciprocal is {#{denominator2}, #{numerator2}}\n")
     multiply({numerator1, denominator1}, reciprocal)
   end
@@ -126,8 +126,7 @@ defmodule RationalNumbers do
     # Assert match with allowed delta of 1.0e-10 ( 0.0000000001 )
 
     # 8 {4, 3}
-    Float.pow(x+0.0, denominator / numerator)
-
+    Float.pow(x + 0.0, denominator / numerator)
   end
 
   @doc """
@@ -140,53 +139,28 @@ defmodule RationalNumbers do
   method 2 divide by greatest common factor 8/12 -> 4, 8 % 4, 12 % 4 ( how to get greatest common factor )
   """
   @spec reduce(a :: rational) :: rational
-  def reduce({numerator=1, denominator}) do
-    {numerator=1, denominator}
+  def reduce({numerator = 1, denominator}) do
+    {numerator = 1, denominator}
   end
+
   def reduce({numerator, denominator}) do
     starting_divider(numerator, denominator)
   end
 
-  defp starting_divider(num=0, den) do
+  defp starting_divider(num = 0, den) do
     {num, den}
   end
-  defp starting_divider(num, den) do
 
-    gcd = 
-      cond do 
+  defp starting_divider(num, den) do
+    gcd =
+      cond do
         den < 0 ->
           Integer.gcd(num, den) * -1
+
         true ->
           Integer.gcd(num, den)
       end
 
-    {round(num/gcd), round(den/gcd)}
-
+    {round(num / gcd), round(den / gcd)}
   end
-
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
